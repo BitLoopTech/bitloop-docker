@@ -10,6 +10,8 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 
 RUN echo "deb http://ftp.us.debian.org/debian testing main contrib non-free" >> /etc/apt/sources.list
 
+RUN curl --silent --show-error https://getcomposer.org/installer | php
+
 # Install git
 RUN apt-get update && apt-get install -y git rsync bzip2  yarn=0.23.2-1 \
     && rm -r /var/lib/apt/lists/*
